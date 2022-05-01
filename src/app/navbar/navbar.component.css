@@ -1,0 +1,8 @@
+.navbar-light {
+  background-color: rgb(252, 245, 211);
+}
+
+.navbar-nav {
+  font-weight: bold;
+  cursor: pointer;
+}
