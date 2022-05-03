@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LocationComponent } from './location/location.component';
 import { CongressComponent } from './congress/congress.component';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
@@ -13,7 +12,6 @@ import { AuthComponent } from './auth/auth.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    LocationComponent,
     CongressComponent,
     HomeComponent,
     AuthComponent

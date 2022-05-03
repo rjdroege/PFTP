@@ -1,10 +1,9 @@
 body {
   height: 100vh;
-  background: #6fa9e4;
+  background: #4CAF50;
 }
 
 h4 {
-  color: rgb(161, 7, 7);
   font-weight: bold;
   font-family: serif;
   text-align: center;
@@ -18,5 +17,4 @@ p {
 
 h2 {
   text-align: center;
-  color: rgb(161, 7, 7);
 }
