@@ -26,3 +26,9 @@ form .ng-touched.ng-invalid {
   margin-top: 7px;
   margin-bottom: 7px;
 }
+
+.alert-danger {
+  margin: auto;
+  text-align: center;
+  width: 275px;
+}

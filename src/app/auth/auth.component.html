@@ -33,5 +33,6 @@
         >{{ isLoginMode ? 'Sign In' : 'Sign Up' }}</button><button class="btn btn-secondary mr-3"
         type="button" (click)="onSwitchMode()">{{ isLoginMode ? 'Switch to Sign Up' : 'Switch to Sign In' }}</button>
       </form>
+      <p class="alert alert-danger mt-3" *ngIf="errMsg">{{ errMsg }}</p>
     </div>
   </div>

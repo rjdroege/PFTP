@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthResponseData, AuthService } from './auth.service';
 
 
 @Component({
@@ -10,8 +12,10 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent implements OnInit {
   isLoginMode: boolean = true;
+  errMsg: string = null;
+  authObs: Observable<AuthResponseData>;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,17 +28,23 @@ export class AuthComponent implements OnInit {
     if (!formObj.valid) return;
     const { email, password } = formObj.value;
     if (this.isLoginMode) {
-
+     this.authObs = this.authService.signIn(email, password);
     } else {
-      this.authService.signUp(email, password).subscribe(
-        (res) => {
-          console.log("Auth Success!", res);
-        }, (err) => {
-          console.error("Auth Error!", err);
-        }
-      );
+     this.authObs = this.authService.signUp(email, password);
     }
+
+    this.authObs.subscribe(
+      (res) => {
+        console.log("Auth Success!", res);
+        this.router.navigate(['congress']);
+      }, (err) => {
+        this.errMsg = err.error.error.message;
+        console.error("Auth Error!", err);
+      }
+    );
       formObj.reset();
   }
+
+
 
 }
