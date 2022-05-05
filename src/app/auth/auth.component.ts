@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
   isLoginMode: boolean = true;
 
-  constructor(private authServie: AuthService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
