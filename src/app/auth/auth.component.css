@@ -1,12 +1,12 @@
+.row {
+  background: #cbf1cc;
+  height: 100vh;
+}
+
 .form-group {
   margin: auto;
   margin-top: 6px;
   text-align: center;
-}
-
-.row {
-  border: solid grey;
-
 }
 
 form {
