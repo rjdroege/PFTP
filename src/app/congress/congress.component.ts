@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { CongressService } from './congress.service';
 
 @Component({
   selector: 'app-congress',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CongressComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, private conService: CongressService) { }
 
   ngOnInit(): void {
   }
+
+  // onFormSubmit(formObj: NgForm) {
+  //   this.conService.onGetLocation();
+  // }
 
 }
