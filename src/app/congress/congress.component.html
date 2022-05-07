@@ -1,24 +1,27 @@
 <body>
   <h2>Find your elected representative.</h2>
-  <div class="row col-md-10">
-  <iframe width="425" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-src="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-94.614,41.868,-81.661,37.785"></iframe>
-<p>To find your congressional district, use the map to zoom into you location.</p>
-</div>
+  <div class="row">
+    <div class="col-md-8">
+      <form #searchForm="ngForm" (ngSubmit)="onFormSubmit(searchForm)">
+        <label for="address" style="text-align: center;">Address</label>
+        <input
+        type="address"
+        id="address"
+        name="address"
+        class="form-control"
+        #addressRef="ngModel"
+        ngModel
+        required
+        />
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+      </div>
+      <div class="col-md-4">
+        <h3>Results</h3>
+        <div class="row" *ngFor="let cong of allSens"></div>
+        <h4 class="list-group-item-text mb-0">{{sen.first_name}} {{sen.last_name}}</h4>
+        <h4 class="list-group-item-text mb-0">{{sen.state}}</h4>
 
-  <!-- <form #searchForm="ngForm" (ngSubmit)="onFormSubmit(searchForm)">
-    <div class="row md-8" style="align-items: center;">
-      <label for="address" style="text-align: center;">Address</label>
-      <input
-      type="address"
-      id="address"
-      name="address"
-      class="form-control"
-      #addressRef="ngModel"
-      ngModel
-      required
-      >
-      <button class="btn btn-primary" type="submit">Search</button>
-    </div>
-  </form> -->
+      </div>
+  </div>
 </body>
