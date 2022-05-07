@@ -1,7 +1,7 @@
 <body>
   <h2>Find your elected representative.</h2>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <form #searchForm="ngForm" (ngSubmit)="onFormSubmit(searchForm)">
         <label for="address" style="text-align: center;">Address</label>
         <input
@@ -15,13 +15,9 @@
         />
         <button class="btn btn-primary" type="submit">Search</button>
       </form>
-      </div>
-      <div class="col-md-4">
-        <h3>Results</h3>
-        <div class="row" *ngFor="let cong of allSens"></div>
-        <h4 class="list-group-item-text mb-0">{{sen.first_name}} {{sen.last_name}}</h4>
-        <h4 class="list-group-item-text mb-0">{{sen.state}}</h4>
+     </div>
+     <div class="col-md-6" *ngFor="let sen of allSens, let i = index">
 
-      </div>
+     </div>
   </div>
 </body>
