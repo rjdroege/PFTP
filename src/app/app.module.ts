@@ -10,6 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MissouriComponent } from './missouri/missouri.component';
+import { DistrictSearchComponent } from './congress/district-search/district-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MissouriComponent } from './missouri/missouri.component';
     CongressComponent,
     HomeComponent,
     AuthComponent,
-    MissouriComponent
+    MissouriComponent,
+    DistrictSearchComponent
   ],
   imports: [
     BrowserModule,

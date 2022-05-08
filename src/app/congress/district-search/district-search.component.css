@@ -1,0 +1,20 @@
+body {
+  background: #cbf1cc;
+    height: 100vh;
+    padding-left: 25px;
+  }
+
+  h2 {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  label {
+    position: relative;;
+  }
+
+  input {
+    max-width: 500px;
+    margin: auto;
+
+  }
