@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Senator } from "./congress.model";
+import { environment } from "src/environments/environment";
 
-// const CONGRESS_API_KEY: string = 'NtMWNbbMMNADlfbsm0a71OVYN0HXLgU0C5AUU3AF';
+const CONGRESS_API_KEY: string = environment.congressAPIKey;
 const SENATE_URL: string = 'https://api.propublica.org/congress/v1/117/senate/members.json';
 const HOUSE_URL: string = 'https://api.propublica.org/congress/v1/117/house/members.json';
 
@@ -16,7 +17,7 @@ export class CongressService {
   constructor(private http: HttpClient) {}
 
   getSenate() {
-    const headers = new HttpHeaders ({ 'X-API-Key': 'NtMWNbbMMNADlfbsm0a71OVYN0HXLgU0C5AUU3AF'
+    const headers = new HttpHeaders ({ 'X-API-Key': CONGRESS_API_KEY
     });
     this.http.get<[]>(SENATE_URL, {headers: headers}).subscribe((senators) => {
       this.allSens.push(senators);

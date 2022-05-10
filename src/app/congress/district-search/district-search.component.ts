@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
-const GOOGLE_API_KEY: string = 'AIzaSyDYr1mNEY1XPrfD05uLZKHfeCl8-bk5bw4';
+const GOOGLE_API_KEY: string = environment.googleAPIKey;
 // const ADDRESS_URL: string =
 // 'https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=
 // '1700%20Perryville%20Rd.%20Cape%20Girardeau%2C%20MO
