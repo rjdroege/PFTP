@@ -9,8 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MissouriComponent } from './missouri/missouri.component';
 import { DistrictSearchComponent } from './congress/district-search/district-search.component';
+import { SenatorComponent } from './shared/senator/senator.component';
+import { RepComponent } from './shared/rep/rep.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { DistrictSearchComponent } from './congress/district-search/district-sea
     CongressComponent,
     HomeComponent,
     AuthComponent,
-    MissouriComponent,
-    DistrictSearchComponent
+    DistrictSearchComponent,
+    SenatorComponent,
+    RepComponent
   ],
   imports: [
     BrowserModule,

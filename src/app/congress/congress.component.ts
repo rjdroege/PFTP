@@ -13,12 +13,14 @@ export class CongressComponent implements OnInit {
   constructor(private http: HttpClient, private conService: CongressService) { }
 
   ngOnInit(): void {
+    this.conService.getSenate();
+    this.conService.getReps();
 
   }
 
 
 
   onFormSubmit(formObj: NgForm) {
-    this.conService.getSenate();
+
   }
 }

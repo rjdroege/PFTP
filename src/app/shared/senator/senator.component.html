@@ -1,0 +1,9 @@
+<a style="cursor: pointer;" class="list-group-item clearfix" [routerLink]="[idx]" routerLinkActive="active">
+  <div class="float-left">
+    <h4 class="list-group-item-heading">{{ senator.first_name }} {{senator.last_name}}</h4>
+    <p class="list-group-item-text mb-0">{{ senator.state }}</p>
+    <p class="list-group-item-text mb-0">Next election year: {{ senator.next_election }}</p>
+    <p class="list-group-item-text mb-0">{{ senator.contact_form }}</p>
+    <p class="list-group-item-text mb-0">{{ senator.phone }}</p>
+  </div>
+</a>
