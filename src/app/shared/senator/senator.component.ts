@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CongressService } from 'src/app/congress/congress.service';
 import { Senator } from './senate.model';
 
 @Component({
@@ -7,12 +8,12 @@ import { Senator } from './senate.model';
   styleUrls: ['./senator.component.css']
 })
 export class SenatorComponent implements OnInit {
-@Input() senator: Senator;
-@Input() idx: number;
-
-  constructor() { }
+  senators: Senator[] = [];
+  constructor(private conService: CongressService) { }
 
   ngOnInit(): void {
+    this.conService.getSenate();
+    this.senators = this.conService.abbSens;
   }
 
 }
