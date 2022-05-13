@@ -1,9 +1,12 @@
 <div class="row">
   <div class="col-md-12" *ngFor="let official of officialResults">
-    <a style="cursor: pointer;" class="list-group-item clearfix">
         <h4 class="list-group-item-heading">{{ official.name }}</h4>
         <p class="list-group-item-text mb-0">{{ official.phone }}</p>
-        <p class="list-group-item-text mb-0"> {{ official.url }}</p>
-    </a>
+        <a style="cursor: pointer;" class="list-group-item clearfix" href="{{ official.url }}">
+        <p class="list-group-item-text mb-0"> {{ official.url }}</p></a>
+        <button
+    class="float-right"
+    style="border: none; font-size: 16px"
+    (click)="onSaveResults(official)">&plus;</button>
   </div>
 </div>

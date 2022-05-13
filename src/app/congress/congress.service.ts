@@ -34,4 +34,8 @@ updatedOfficials = new EventEmitter<Official[]>();
       this.updatedOfficials.next(this.finalArray.slice());
     });
   }
+
+  getOfficial(){
+
+  }
 }
