@@ -1,1 +1,9 @@
-<p>official-results works!</p>
+<div class="row">
+  <div class="col-md-12" *ngFor="let official of officialResults">
+    <a style="cursor: pointer;" class="list-group-item clearfix">
+        <h4 class="list-group-item-heading">{{ official.name }}</h4>
+        <p class="list-group-item-text mb-0">{{ official.phone }}</p>
+        <p class="list-group-item-text mb-0"> {{ official.url }}</p>
+    </a>
+  </div>
+</div>

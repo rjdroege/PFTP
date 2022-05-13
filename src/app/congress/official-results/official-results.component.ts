@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Official } from 'src/app/shared/official/official.model';
+import { CongressService } from '../congress.service';
 
 @Component({
   selector: 'app-official-results',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./official-results.component.css']
 })
 export class OfficialResultsComponent implements OnInit {
+  officialResults: Official[]=[];
 
-  constructor() { }
+  constructor(private conService: CongressService) { }
 
   ngOnInit(): void {
+    this.conService.updatedOfficials.subscribe((officials: Official[]) => {
+      this.officialResults = officials;
+    });
   }
 
 }

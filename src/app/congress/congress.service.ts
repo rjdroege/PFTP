@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Official } from "../shared/official/official.model";
 
@@ -10,6 +10,7 @@ const GOOGLE_API_KEY: string = environment.googleAPIKey;
 })
 export class CongressService {
 finalArray= [];
+updatedOfficials = new EventEmitter<Official[]>();
 
   constructor(private http: HttpClient) {}
 
@@ -30,7 +31,7 @@ finalArray= [];
         );
         this.finalArray.push(myOfficial);
       });
-        console.log(this.finalArray);
+      this.updatedOfficials.next(this.finalArray.slice());
     });
   }
 }
