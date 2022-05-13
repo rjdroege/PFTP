@@ -10,8 +10,7 @@ import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DistrictSearchComponent } from './congress/district-search/district-search.component';
-import { SenatorComponent } from './shared/senator/senator.component';
-import { RepComponent } from './shared/rep/rep.component';
+import { OfficialResultsComponent } from './congress/official-results/official-results.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { RepComponent } from './shared/rep/rep.component';
     HomeComponent,
     AuthComponent,
     DistrictSearchComponent,
-    SenatorComponent,
-    RepComponent
+    OfficialResultsComponent
   ],
   imports: [
     BrowserModule,
