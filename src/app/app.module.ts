@@ -8,9 +8,11 @@ import { CongressComponent } from './congress/congress.component';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DistrictSearchComponent } from './congress/district-search/district-search.component';
 import { OfficialResultsComponent } from './congress/official-results/official-results.component';
+import { SavedOfficialsComponent } from './congress/saved-officials/saved-officials.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { OfficialResultsComponent } from './congress/official-results/official-r
     HomeComponent,
     AuthComponent,
     DistrictSearchComponent,
-    OfficialResultsComponent
+    OfficialResultsComponent,
+    SavedOfficialsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,13 @@ import { OfficialResultsComponent } from './congress/official-results/official-r
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,7 +35,7 @@ updatedOfficials = new EventEmitter<Official[]>();
     });
   }
 
-  getOfficial(){
-
+  getOfficial(idx: number){
+    return this.finalArray.slice()[idx];
   }
 }

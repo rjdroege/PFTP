@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HTTPService } from 'src/app/shared/http/http.service';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 import { Official } from 'src/app/shared/official/official.model';
 import { CongressService } from '../congress.service';
 
@@ -11,7 +11,7 @@ import { CongressService } from '../congress.service';
 export class OfficialResultsComponent implements OnInit {
   officialResults: Official[]=[];
 
-  constructor(private conService: CongressService, private http: HTTPService) { }
+  constructor(private conService: CongressService) { }
 
   ngOnInit(): void {
     this.conService.updatedOfficials.subscribe((officials: Official[]) => {
@@ -19,7 +19,4 @@ export class OfficialResultsComponent implements OnInit {
     });
   }
 
-  onSaveResults(){
-    this.http.saveOfficialsToFirebase();
-  }
 }

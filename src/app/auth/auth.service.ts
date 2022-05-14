@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
 import { User } from "./user.model";
 import { tap } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 const API_KEY: string = 'AIzaSyDYr1mNEY1XPrfD05uLZKHfeCl8-bk5bw4';
 const SIGN_UP_URL: string = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
@@ -26,7 +27,7 @@ export class AuthService {
 currentUser = new BehaviorSubject<User>(null);
 userToken: string = null;
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient, private router: Router){}
 
     signUp(email: string, password: string) {
       return this.http.post<AuthResponseData>(SIGN_UP_URL + API_KEY, {
@@ -59,6 +60,11 @@ userToken: string = null;
       const formUser = new User(email, userId, token, expDate);
       this.currentUser.next(formUser);
       localStorage.setItem("userData", JSON.stringify(formUser));
+    }
+
+    signOut(){
+      this.currentUser.next(null);
+      this.router.navigate(['auth']);
     }
 
 }
