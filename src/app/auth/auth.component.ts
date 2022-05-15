@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit {
     this.authObs.subscribe(
       (res) => {
         console.log("Auth Success!", res);
-        this.router.navigate(['congress']);
+        this.router.navigate(['search']);
       }, (err) => {
         this.errMsg = err.error.error.message;
         console.error("Auth Error!", err);
@@ -44,7 +44,5 @@ export class AuthComponent implements OnInit {
     );
       formObj.reset();
   }
-
-
 
 }

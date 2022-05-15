@@ -1,1 +1,13 @@
-<p>saved-officials works!</p>
+<body>
+  <button class="btn btn-danger" type="button" (click)="getReps()">Get Representatives</button>
+
+  <a style="cursor: pointer;" class="list-group-item clearfix" *ngIf="savedOfficials.length > 0 ">
+    <div class="row">
+      <div class="col-md-12" *ngFor="let official of savedOfficials">
+            <h4 class="list-group-item-heading">{{ official.name }}</h4>
+            <p class="list-group-item-text mb-0">{{ official.phone }}</p>
+            <a href="{{ official.url }}">{{ official.url }}</a>
+      </div>
+    </div>
+    </a>
+</body>

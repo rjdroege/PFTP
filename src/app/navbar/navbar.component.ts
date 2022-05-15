@@ -21,4 +21,8 @@ isAuthenticated: boolean = false;
       this.authService.currentUser.unsubscribe();
   }
 
+  signOut() {
+    this.authService.signOut();
+  }
+
 }

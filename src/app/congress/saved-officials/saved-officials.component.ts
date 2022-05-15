@@ -18,11 +18,13 @@ export class SavedOfficialsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    return this.http.get<Official[]>(this.firebaseRouteURL, {}).pipe(
-      tap((officials) => {
+      }
+
+  getReps(){
+    return this.http.get<Official[]>(this.firebaseRouteURL).subscribe((officials) => {
         this.savedOfficials = officials;
-      })
-    );
+        console.log(officials);
+      });
   }
 
 }
