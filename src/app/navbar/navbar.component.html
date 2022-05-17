@@ -6,9 +6,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/auth">Sign In</a>
-      <a class="nav-item nav-link" routerLink="/search" *ngIf="isAuthenticated">Find Your District</a>
-      <a class="nav-item nav-link" routerLink="/saved" *ngIf="isAuthenticated">Your Saved Representatives</a>
+      <a class="nav-item nav-link" routerLink="/search" *ngIf="isAuthenticated" routerLinkActive="active">Find Your District</a>
+      <a class="nav-item nav-link" routerLink="/saved" *ngIf="isAuthenticated" routerLinkActive="active">Your Saved Representatives</a>
       <a class="nav-item nav-link" routerLink="/auth"
       *ngIf="isAuthenticated" (click)="signOut()" style="position: absolute; right: 25px">Sign Out</a>
     </div>

@@ -13,6 +13,12 @@ import { DistrictSearchComponent } from './congress/district-search/district-sea
 import { OfficialResultsComponent } from './congress/official-results/official-results.component';
 import { SavedOfficialsComponent } from './congress/saved-officials/saved-officials.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { OfficialsPageComponent } from './congress/officials-page/officials-page.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -23,13 +29,18 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     AuthComponent,
     DistrictSearchComponent,
     OfficialResultsComponent,
-    SavedOfficialsComponent
+    SavedOfficialsComponent,
+    OfficialsPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [
     {

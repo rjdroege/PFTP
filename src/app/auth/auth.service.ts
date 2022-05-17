@@ -64,7 +64,7 @@ userToken: string = null;
 
     signOut(){
       this.currentUser.next(null);
-      this.router.navigate(['auth']);
+      this.router.navigate(['home']);
     }
 
 }
