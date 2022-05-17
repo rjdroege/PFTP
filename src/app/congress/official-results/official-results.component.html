@@ -1,11 +1,9 @@
 <body>
-  <a style="cursor: pointer;" class="list-group-item clearfix" *ngIf="officialResults.length > 0">
-    <div class="row">
+    <div class="row" *ngIf="officialResults.length > 0">
       <div class="col-md-12" *ngFor="let official of officialResults">
             <h4 class="list-group-item-heading">{{ official.name }}</h4>
-            <p class="list-group-item-text mb-0">{{ official.phone }}</p>
-            <a href="{{ official.url }}">{{ official.url }}</a>
       </div>
     </div>
-    </a>
+    <button class="btn btn-primary" type="button"
+    (click)="saveReps()" *ngIf="officialResults.length > 0">Save my representatives</button>
 </body>
