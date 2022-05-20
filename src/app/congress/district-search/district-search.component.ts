@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Official } from 'src/app/shared/official/official.model';
+import { Router } from '@angular/router';
+import { Official } from 'src/app/congress/official.model';
 import { CongressService } from '../congress.service';
 
 
@@ -10,10 +12,13 @@ import { CongressService } from '../congress.service';
 })
 export class DistrictSearchComponent implements OnInit {
 officialResults: Official[] =[];
+firebaseRouteURL =
+    'https://pftp-a566d-default-rtdb.firebaseio.com/officials.json';
+
 
 
   constructor(
-    private conService: CongressService,
+    private conService: CongressService, private router: Router, private http: HttpClient,
     ) { }
 
   ngOnInit(): void {
@@ -23,6 +28,10 @@ officialResults: Official[] =[];
     this.conService.getOfficials(searchText);
     this.conService.updatedOfficials.subscribe((officials: Official[]) => {
       this.officialResults = officials;
+      this.http.put(this.firebaseRouteURL, this.officialResults).subscribe((res) => {
+        console.log(res);
+      });
+      this.router.navigate(['saved']);
     });
   }
 

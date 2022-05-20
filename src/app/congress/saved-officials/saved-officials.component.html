@@ -1,14 +1,15 @@
 <body>
   <div class="row">
+    <button class="btn btn-primary" type="button" (click)="getReps()">See my representatives</button>
   <a style="cursor: pointer;" class="list-group-item clearfix" *ngIf="savedOfficials.length > 0 ">
-      <div class="col-l-6" *ngFor="let official of savedOfficials">
+      <div class="col-l-6" *ngFor="let official of savedOfficials, let i = index">
             <h4 class="list-group-item-heading">{{ official.name }}</h4>
             <p class="list-group-item-text mb-0">{{ official.phone }}</p>
             <a href="{{ official.url }}">{{ official.url }}</a>
       </div>
     </a>
     <div class="col-l-6">
-      <app-officials-page></app-officials-page>
+      <app-officials-page [official]="official" [idx]="i"></app-officials-page>
     </div>
   </div>
   </body>

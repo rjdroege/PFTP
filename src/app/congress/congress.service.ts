@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { EventEmitter, Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { Official } from "../shared/official/official.model";
+import { Official } from "./official.model";
 
 const GOOGLE_API_KEY: string = environment.googleAPIKey;
 
