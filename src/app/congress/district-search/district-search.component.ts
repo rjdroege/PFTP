@@ -31,7 +31,7 @@ firebaseRouteURL =
       this.http.put(this.firebaseRouteURL, this.officialResults).subscribe((res) => {
         console.log(res);
       });
-      this.router.navigate(['saved']);
+      // this.router.navigate(['saved']);
     });
   }
 
